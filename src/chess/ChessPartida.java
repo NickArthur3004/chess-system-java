@@ -23,10 +23,15 @@ public class ChessPartida {
 		}
 		return mat;
 	}
+	
+	private void PlaceNewPeça(char coluna, int linha , ChessPeça peça) {
+		tabuleiro.placePeça(peça, new ChessPosiçao(coluna, linha).toPosiçao());
+	}
+	
 	private void InicioSetup() {
-		tabuleiro.placePeça(new Torre(tabuleiro, Color.WHITE), new Posicao(2, 1));
-		tabuleiro.placePeça(new Rei(tabuleiro, Color.BLACK), new Posicao(0, 4));
-		tabuleiro.placePeça(new Rei(tabuleiro, Color.WHITE), new Posicao(7, 4));
+		PlaceNewPeça('b', 6,new Torre(tabuleiro, Color.WHITE));
+		PlaceNewPeça('e', 8,new Rei(tabuleiro, Color.BLACK));
+		PlaceNewPeça('e',1,new Rei(tabuleiro, Color.WHITE));
 	}
 	
 
