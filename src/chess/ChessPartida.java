@@ -29,9 +29,19 @@ public class ChessPartida {
 	}
 	
 	private void InicioSetup() {
-		PlaceNewPeça('b', 6,new Torre(tabuleiro, Color.WHITE));
-		PlaceNewPeça('e', 8,new Rei(tabuleiro, Color.BLACK));
-		PlaceNewPeça('e',1,new Rei(tabuleiro, Color.WHITE));
+		PlaceNewPeça('c', 1,new Torre(tabuleiro, Color.WHITE));
+		PlaceNewPeça('c', 2,new Torre(tabuleiro, Color.WHITE));
+		PlaceNewPeça('d', 2,new Torre(tabuleiro, Color.WHITE));
+		PlaceNewPeça('e', 2,new Torre(tabuleiro, Color.WHITE));
+		PlaceNewPeça('e', 1,new Torre(tabuleiro, Color.WHITE));
+		PlaceNewPeça('d', 1,new Rei(tabuleiro, Color.WHITE));
+		
+		PlaceNewPeça('c', 7,new Torre(tabuleiro, Color.BLACK));
+		PlaceNewPeça('c', 8,new Torre(tabuleiro, Color.BLACK));
+		PlaceNewPeça('d', 7,new Torre(tabuleiro, Color.BLACK));
+		PlaceNewPeça('e', 7,new Torre(tabuleiro, Color.BLACK));
+		PlaceNewPeça('e', 8,new Torre(tabuleiro, Color.BLACK));
+		PlaceNewPeça('d', 8,new Torre(tabuleiro, Color.BLACK));
 	}
 	
 
