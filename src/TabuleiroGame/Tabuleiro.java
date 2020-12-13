@@ -44,6 +44,19 @@ public class Tabuleiro {
 		 peça.posicao = posicao;
 	 }
 	 
+	 public Peça removePeça(Posicao posicao) {
+		 if(!PosicaoExistente(posicao)) {
+			 throw new TabuleiroException("Essa Posição ñ existe no tabuleiro");
+		 }
+		 if(peça(posicao) == null) {
+			 return null;
+		 }
+		 Peça aux = peça(posicao);
+		 aux.posicao = null;
+		 peças[posicao.getLinha()][posicao.getColuna()] = null;
+		 return aux;
+	 }
+	 
      private boolean PosicaoExistente(int linha,int coluna) {
 		 return linha >=0 && linha < linhas && coluna >=0 && coluna < colunas;
 	 }

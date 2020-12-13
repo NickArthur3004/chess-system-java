@@ -1,5 +1,6 @@
 package chess;
 
+import TabuleiroGame.Peça;
 import TabuleiroGame.Posicao;
 import TabuleiroGame.Tabuleiro;
 import chess.Peça.Rei;
@@ -22,6 +23,27 @@ public class ChessPartida {
 			}
 		}
 		return mat;
+	}
+	
+	public ChessPeça performChessMove(ChessPosiçao sourcePosiçao, ChessPosiçao targetPosiçao) {
+		Posicao source = sourcePosiçao.toPosiçao();
+		Posicao target = targetPosiçao.toPosiçao();
+		validarSourcePosiçao(source);
+		Peça capturarPeça= makeMove(source, target);
+		return (ChessPeça)capturarPeça;
+	
+	}
+	private Peça makeMove(Posicao source, Posicao target) {
+		Peça p = tabuleiro.removePeça(source);
+		Peça capturaPeça = tabuleiro.removePeça(target);
+		tabuleiro.placePeça(p, target);
+		return capturaPeça;
+	}
+	
+	private void validarSourcePosiçao(Posicao posicao) {
+		if(!tabuleiro.thereIsAPeça(posicao)) {
+			throw new ChessException("Não existe peça na posição de origem");
+		}
 	}
 	
 	private void PlaceNewPeça(char coluna, int linha , ChessPeça peça) {
