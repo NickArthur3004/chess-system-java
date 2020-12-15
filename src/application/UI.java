@@ -29,6 +29,12 @@ public class UI {
 	public static final String ANSI_CYAN_BACKGROUND = "\u0018[46m";
 	public static final String ANSI_HITE_BACKGROUND = "\u0018[47m";
 	
+	// https://stackoverflow.com/questions/2979383/java-clear-the-console
+	public static void clearScreen() {
+	 System.out.print("\033[H\033[2J");
+	 System.out.flush();
+	}
+	
 	public static ChessPosiçao lerChessPosiçao(Scanner sc) {
 		try {
 		String s = sc.nextLine();
