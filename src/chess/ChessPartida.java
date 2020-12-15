@@ -44,6 +44,9 @@ public class ChessPartida {
 		if(!tabuleiro.thereIsAPeça(posicao)) {
 			throw new ChessException("Não existe peça na posição de origem");
 		}
+		if(!tabuleiro.peça(posicao).IsThereAnyPossibleMove()) {
+			throw new ChessException("Não existe movimentos possiveis para a peça escolhida");
+		}
 	}
 	
 	private void PlaceNewPeça(char coluna, int linha , ChessPeça peça) {
