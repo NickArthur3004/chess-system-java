@@ -25,6 +25,13 @@ public class ChessPartida {
 		return mat;
 	}
 	
+	public boolean[][] possibleMoves(ChessPosiçao sourcePosiçao){
+		Posicao posicao = sourcePosiçao.toPosiçao();
+		validarSourcePosiçao(posicao);
+		return tabuleiro.peça(posicao).possibleMoves();
+		
+	}
+	
 	public ChessPeça performChessMove(ChessPosiçao sourcePosiçao, ChessPosiçao targetPosiçao) {
 		Posicao source = sourcePosiçao.toPosiçao();
 		Posicao target = targetPosiçao.toPosiçao();

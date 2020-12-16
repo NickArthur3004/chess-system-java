@@ -24,7 +24,7 @@ public class UI {
 	public static final String AlSI_RED_BACKGROUND = "\u0018[41m";
 	public static final String ANSI_GREEN_BACKKGROUND = "\u0018[42m";
 	public static final String ANSI_VELLON_BACKGROUND = "\u0018[43m";
-	public static final String ANSI_BLUE_BACKGROUND = "\u0018[44m";
+	public static final String ANSI_BLUE_BACKGROUND = "\u001B[44m";
 	public static final String ANSI_PURPLE_BACKGROUND = "\0018[45m";
 	public static final String ANSI_CYAN_BACKGROUND = "\u0018[46m";
 	public static final String ANSI_HITE_BACKGROUND = "\u0018[47m";
@@ -51,16 +51,30 @@ public class UI {
 		for (int i = 0; i < peças.length; i++) {
 			System.out.print((8 - i) + " ");
 			for (int j = 0; j < peças.length; j++) {
-				printPeça(peças[i][j]);
+				printPeça(peças[i][j], false);
+			}
+			System.out.println();
+		}
+		System.out.println("  a b c d e f g h");
+	}
+	
+	public static void printTabuleiro(ChessPeça[][] peças, boolean[][] possibleMoves) {
+		for (int i = 0; i < peças.length; i++) {
+			System.out.print((8 - i) + " ");
+			for (int j = 0; j < peças.length; j++) {
+				printPeça(peças[i][j], possibleMoves[i][j]);
 			}
 			System.out.println();
 		}
 		System.out.println("  a b c d e f g h");
 	}
 
-	public static void printPeça(ChessPeça peça) {
+	public static void printPeça(ChessPeça peça, boolean background) {
+		if(background) {
+			System.out.print(ANSI_BLUE_BACKGROUND);
+		}
 		if (peça == null) {
-			System.out.print("-");
+			System.out.print("-"+ ANSI_RESET);
 		} else {
 			if (peça.getColor() == Color.WHITE) {
 				System.out.print(ANSI_WHITE + peça + ANSI_RESET);
