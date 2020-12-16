@@ -29,6 +29,7 @@ public class ChessPartida {
 		Posicao source = sourcePosiçao.toPosiçao();
 		Posicao target = targetPosiçao.toPosiçao();
 		validarSourcePosiçao(source);
+		validarTargetPosiçao(source, target);
 		Peça capturarPeça= makeMove(source, target);
 		return (ChessPeça)capturarPeça;
 	
@@ -47,6 +48,14 @@ public class ChessPartida {
 		if(!tabuleiro.peça(posicao).IsThereAnyPossibleMove()) {
 			throw new ChessException("Não existe movimentos possiveis para a peça escolhida");
 		}
+	}
+	
+	private void validarTargetPosiçao(Posicao source, Posicao target) {
+		
+		if(!tabuleiro.peça(source).possibleMove(target)) {
+			throw new ChessException("A peça escolhida não pode se mover para a posição de destino");
+		}
+		
 	}
 	
 	private void PlaceNewPeça(char coluna, int linha , ChessPeça peça) {
