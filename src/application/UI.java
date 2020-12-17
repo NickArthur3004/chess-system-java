@@ -3,6 +3,7 @@ package application;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import chess.ChessPartida;
 import chess.ChessPeça;
 import chess.ChessPosiçao;
 import chess.Color;
@@ -45,6 +46,13 @@ public class UI {
 		catch(RuntimeException e) {
 			throw new InputMismatchException("Erro lendo posição de xadres: valores validos são de a1 até h8.");
 		}
+	}
+	
+	public static void printPartida(ChessPartida chessPartida) {
+		printTabuleiro(chessPartida.getPeças());
+		System.out.println();
+		System.out.println("Turno: "+chessPartida.getTurno());
+		System.out.println("Esperando Jogador: "+ chessPartida.getCurrentPlayer());
 	}
 
 	public static void printTabuleiro(ChessPeça[][] peças) {

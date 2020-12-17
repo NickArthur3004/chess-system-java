@@ -9,10 +9,22 @@ import chess.Peça.Torre;
 public class ChessPartida {
 	
 	private Tabuleiro tabuleiro;
+	private int turno;
+	private Color currentPlayer;
 
 	public ChessPartida() {
 		tabuleiro = new Tabuleiro(8, 8); 
+		turno = 1;
+		currentPlayer = Color.WHITE;
 		InicioSetup();
+	}
+	
+	public int getTurno() {
+		return turno;
+	}
+	
+	public Color getCurrentPlayer() {
+		return currentPlayer;
 	}
 	
 	public ChessPeça[][] getPeças(){
@@ -38,6 +50,7 @@ public class ChessPartida {
 		validarSourcePosiçao(source);
 		validarTargetPosiçao(source, target);
 		Peça capturarPeça= makeMove(source, target);
+		proximoTurno();
 		return (ChessPeça)capturarPeça;
 	
 	}
@@ -50,19 +63,28 @@ public class ChessPartida {
 	
 	private void validarSourcePosiçao(Posicao posicao) {
 		if(!tabuleiro.thereIsAPeça(posicao)) {
-			throw new ChessException("Não existe peça na posição de origem");
+			throw new ChessException("Nao existe peça na posição de origem");
+		}
+		if(currentPlayer != ((ChessPeça)tabuleiro.peça(posicao)).getColor()) {
+			throw new ChessException("A peca escolhida nao e sua");
 		}
 		if(!tabuleiro.peça(posicao).IsThereAnyPossibleMove()) {
-			throw new ChessException("Não existe movimentos possiveis para a peça escolhida");
+			throw new ChessException("Nao existe movimentos possiveis para a peça escolhida");
 		}
+		
 	}
 	
 	private void validarTargetPosiçao(Posicao source, Posicao target) {
 		
 		if(!tabuleiro.peça(source).possibleMove(target)) {
-			throw new ChessException("A peça escolhida não pode se mover para a posição de destino");
+			throw new ChessException("A peça escolhida nao pode se mover para a posicao de destino");
 		}
 		
+	}
+	
+	private void proximoTurno() {
+		turno++;
+		currentPlayer = (currentPlayer == Color.WHITE) ? Color.BLACK : Color.WHITE;
 	}
 	
 	private void PlaceNewPeça(char coluna, int linha , ChessPeça peça) {
