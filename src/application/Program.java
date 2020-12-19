@@ -23,7 +23,7 @@ public class Program {
 		while(true) {
 			try {
 		UI.clearScreen();
-		UI.printPartida(chessPartida, captura);;
+		UI.printPartida(chessPartida, captura);
 		System.out.println();
 		System.out.print("Origem: ");
 		ChessPosiçao source = UI.lerChessPosiçao(sc);
