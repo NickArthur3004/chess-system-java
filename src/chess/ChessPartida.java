@@ -85,7 +85,8 @@ public class ChessPartida {
 	
 	}
 	private Peça makeMove(Posicao source, Posicao target) {
-		Peça p = tabuleiro.removePeça(source);
+		ChessPeça p = (ChessPeça)tabuleiro.removePeça(source);
+		p.increaseMove();
 		Peça capturarPeça = tabuleiro.removePeça(target);
 		tabuleiro.placePeça(p, target);
 		
@@ -98,7 +99,8 @@ public class ChessPartida {
 	}
 	
 	public void desfazerMove(Posicao source, Posicao target, Peça capturarPeça) {
-		Peça p = tabuleiro.removePeça(target);
+		ChessPeça p = (ChessPeça)tabuleiro.removePeça(target);
+		p.decreaseMove();
 		tabuleiro.placePeça(p, source);
 		
 		if(capturarPeça != null) {
