@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import TabuleiroGame.Peça;
 import TabuleiroGame.Posicao;
 import TabuleiroGame.Tabuleiro;
+import chess.Peça.Peao;
 import chess.Peça.Rei;
 import chess.Peça.Torre;
 
@@ -192,12 +193,29 @@ public class ChessPartida {
 	}
 	
 	private void InicioSetup() {
-		PlaceNewPeça('h', 7,new Torre(tabuleiro, Color.WHITE));
-		PlaceNewPeça('d', 1,new Torre(tabuleiro, Color.WHITE));
+		PlaceNewPeça('a', 1,new Torre(tabuleiro, Color.WHITE));
 		PlaceNewPeça('e', 1,new Rei(tabuleiro, Color.WHITE));
+		PlaceNewPeça('h', 1,new Torre(tabuleiro, Color.WHITE));
+		PlaceNewPeça('a', 2,new Peao(tabuleiro, Color.WHITE));
+		PlaceNewPeça('b', 2,new Peao(tabuleiro, Color.WHITE));
+		PlaceNewPeça('c', 2,new Peao(tabuleiro, Color.WHITE));
+		PlaceNewPeça('d', 2,new Peao(tabuleiro, Color.WHITE));
+		PlaceNewPeça('e', 2,new Peao(tabuleiro, Color.WHITE));
+		PlaceNewPeça('f', 2,new Peao(tabuleiro, Color.WHITE));
+		PlaceNewPeça('g', 2,new Peao(tabuleiro, Color.WHITE));
+		PlaceNewPeça('h', 2,new Peao(tabuleiro, Color.WHITE));
 		
-		PlaceNewPeça('b', 8,new Torre(tabuleiro, Color.BLACK));
-		PlaceNewPeça('a', 8,new Rei(tabuleiro, Color.BLACK));
+		PlaceNewPeça('a', 8,new Torre(tabuleiro, Color.BLACK));
+		PlaceNewPeça('e', 8,new Rei(tabuleiro, Color.BLACK));
+		PlaceNewPeça('h', 8,new Torre(tabuleiro, Color.BLACK));
+		PlaceNewPeça('a', 7,new Peao(tabuleiro, Color.BLACK));
+		PlaceNewPeça('b', 7,new Peao(tabuleiro, Color.BLACK));
+		PlaceNewPeça('c', 7,new Peao(tabuleiro, Color.BLACK));
+		PlaceNewPeça('d', 7,new Peao(tabuleiro, Color.BLACK));
+		PlaceNewPeça('e', 7,new Peao(tabuleiro, Color.BLACK));
+		PlaceNewPeça('f', 7,new Peao(tabuleiro, Color.BLACK));
+		PlaceNewPeça('g', 7,new Peao(tabuleiro, Color.BLACK));
+		PlaceNewPeça('h', 7,new Peao(tabuleiro, Color.BLACK));
 	}
 	
 
