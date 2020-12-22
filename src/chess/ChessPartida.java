@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import TabuleiroGame.Peça;
 import TabuleiroGame.Posicao;
 import TabuleiroGame.Tabuleiro;
+import chess.Peça.Bispo;
 import chess.Peça.Peao;
 import chess.Peça.Rei;
 import chess.Peça.Torre;
@@ -194,6 +195,8 @@ public class ChessPartida {
 	
 	private void InicioSetup() {
 		PlaceNewPeça('a', 1,new Torre(tabuleiro, Color.WHITE));
+		PlaceNewPeça('c', 1,new Bispo(tabuleiro, Color.WHITE));
+		PlaceNewPeça('f', 1,new Bispo(tabuleiro, Color.WHITE));
 		PlaceNewPeça('e', 1,new Rei(tabuleiro, Color.WHITE));
 		PlaceNewPeça('h', 1,new Torre(tabuleiro, Color.WHITE));
 		PlaceNewPeça('a', 2,new Peao(tabuleiro, Color.WHITE));
@@ -206,6 +209,8 @@ public class ChessPartida {
 		PlaceNewPeça('h', 2,new Peao(tabuleiro, Color.WHITE));
 		
 		PlaceNewPeça('a', 8,new Torre(tabuleiro, Color.BLACK));
+		PlaceNewPeça('c', 8,new Bispo(tabuleiro, Color.BLACK));
+		PlaceNewPeça('f', 8,new Bispo(tabuleiro, Color.BLACK));
 		PlaceNewPeça('e', 8,new Rei(tabuleiro, Color.BLACK));
 		PlaceNewPeça('h', 8,new Torre(tabuleiro, Color.BLACK));
 		PlaceNewPeça('a', 7,new Peao(tabuleiro, Color.BLACK));
