@@ -10,6 +10,7 @@ import TabuleiroGame.Tabuleiro;
 import chess.Peça.Bispo;
 import chess.Peça.Cavalo;
 import chess.Peça.Peao;
+import chess.Peça.Rainha;
 import chess.Peça.Rei;
 import chess.Peça.Torre;
 
@@ -199,6 +200,7 @@ public class ChessPartida {
 		PlaceNewPeça('b', 1,new Cavalo(tabuleiro, Color.WHITE));
 		PlaceNewPeça('c', 1,new Bispo(tabuleiro, Color.WHITE));
 		PlaceNewPeça('f', 1,new Bispo(tabuleiro, Color.WHITE));
+		PlaceNewPeça('d', 1,new Rainha(tabuleiro, Color.WHITE));
 		PlaceNewPeça('e', 1,new Rei(tabuleiro, Color.WHITE));
 		PlaceNewPeça('h', 1,new Torre(tabuleiro, Color.WHITE));
 		PlaceNewPeça('g', 1,new Cavalo(tabuleiro, Color.WHITE));
@@ -215,6 +217,7 @@ public class ChessPartida {
 		PlaceNewPeça('b', 8,new Cavalo(tabuleiro, Color.BLACK));
 		PlaceNewPeça('c', 8,new Bispo(tabuleiro, Color.BLACK));
 		PlaceNewPeça('f', 8,new Bispo(tabuleiro, Color.BLACK));
+		PlaceNewPeça('d', 8,new Rainha(tabuleiro, Color.BLACK));
 		PlaceNewPeça('e', 8,new Rei(tabuleiro, Color.BLACK));
 		PlaceNewPeça('h', 8,new Torre(tabuleiro, Color.BLACK));
 		PlaceNewPeça('g', 8,new Cavalo(tabuleiro, Color.BLACK));
