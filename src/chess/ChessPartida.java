@@ -99,6 +99,23 @@ public class ChessPartida {
 			peçasCapturadas.add(capturarPeça);
 		}
 		
+		//#movimento especial
+		if(p instanceof Rei && target.getColuna() == source.getColuna()+2) {
+			Posicao sourceT = new Posicao(source.getLinha(),source.getColuna()+3);
+			Posicao targetT = new Posicao(source.getLinha(),source.getColuna()+1);
+			ChessPeça torre = (ChessPeça)tabuleiro.removePeça(sourceT);
+			tabuleiro.placePeça(torre, targetT);
+			torre.increaseMove();
+		}
+		//#movimento especial
+				if(p instanceof Rei && target.getColuna() == source.getColuna()-2) {
+					Posicao sourceT = new Posicao(source.getLinha(),source.getColuna()-4);
+					Posicao targetT = new Posicao(source.getLinha(),source.getColuna()-1);
+					ChessPeça torre = (ChessPeça)tabuleiro.removePeça(sourceT);
+					tabuleiro.placePeça(torre, targetT);
+					torre.increaseMove();
+				}
+		
 		return capturarPeça;
 	}
 	
@@ -112,6 +129,22 @@ public class ChessPartida {
 			peçasCapturadas.remove(capturarPeça);
 		    peçasNoTabuleiro.add(capturarPeça);
 		}
+		//#movimento especial
+				if(p instanceof Rei && target.getColuna() == source.getColuna()+2) {
+					Posicao sourceT = new Posicao(source.getLinha(),source.getColuna()+3);
+					Posicao targetT = new Posicao(source.getLinha(),source.getColuna()+1);
+					ChessPeça torre = (ChessPeça)tabuleiro.removePeça(targetT);
+					tabuleiro.placePeça(torre, sourceT);
+					torre.decreaseMove();
+				}
+				//#movimento especial
+						if(p instanceof Rei && target.getColuna() == source.getColuna()-2) {
+							Posicao sourceT = new Posicao(source.getLinha(),source.getColuna()-4);
+							Posicao targetT = new Posicao(source.getLinha(),source.getColuna()-1);
+							ChessPeça torre = (ChessPeça)tabuleiro.removePeça(targetT);
+							tabuleiro.placePeça(torre, sourceT);
+							torre.decreaseMove();
+						}
 	}
 	
 	private void validarSourcePosiçao(Posicao posicao) {
@@ -201,7 +234,7 @@ public class ChessPartida {
 		PlaceNewPeça('c', 1,new Bispo(tabuleiro, Color.WHITE));
 		PlaceNewPeça('f', 1,new Bispo(tabuleiro, Color.WHITE));
 		PlaceNewPeça('d', 1,new Rainha(tabuleiro, Color.WHITE));
-		PlaceNewPeça('e', 1,new Rei(tabuleiro, Color.WHITE));
+		PlaceNewPeça('e', 1,new Rei(tabuleiro, Color.WHITE,this));
 		PlaceNewPeça('h', 1,new Torre(tabuleiro, Color.WHITE));
 		PlaceNewPeça('g', 1,new Cavalo(tabuleiro, Color.WHITE));
 		PlaceNewPeça('a', 2,new Peao(tabuleiro, Color.WHITE));
@@ -218,7 +251,7 @@ public class ChessPartida {
 		PlaceNewPeça('c', 8,new Bispo(tabuleiro, Color.BLACK));
 		PlaceNewPeça('f', 8,new Bispo(tabuleiro, Color.BLACK));
 		PlaceNewPeça('d', 8,new Rainha(tabuleiro, Color.BLACK));
-		PlaceNewPeça('e', 8,new Rei(tabuleiro, Color.BLACK));
+		PlaceNewPeça('e', 8,new Rei(tabuleiro, Color.BLACK,this));
 		PlaceNewPeça('h', 8,new Torre(tabuleiro, Color.BLACK));
 		PlaceNewPeça('g', 8,new Cavalo(tabuleiro, Color.BLACK));
 		PlaceNewPeça('a', 7,new Peao(tabuleiro, Color.BLACK));
